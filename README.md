@@ -21,11 +21,14 @@ To use this MDP solver with the Pac-Man game, follow these steps:
 ## Running the Solver
 To start the game with the `MDPAgent`, navigate to the directory containing the game files and the `MDPAgent.py` file, then run:
 ```
-python pacman.py -q -n 25 -p MDPAgent -l smallGrid
-python pacman.py -q -n 25 -p MDPAgent -l mediumClassic
+python2.7 pacman.py -q -n 25 -p MDPAgent -l smallGrid
 ```
--l is shorthand for -layout. -p is shorthand for -pacman. -q runs the game without the
-interface (making it faster).
+
+```
+python2.7 pacman.py -q -n 25 -p MDPAgent -l mediumClassic
+```
+
+`-l` is shorthand for `-layout`, `-p` is shorthand for `-pacman`, and `-q` runs the game without the interface (making it faster).
 
 You can customize the game settings by adding additional command-line options as described in the original Pac-Man AI project documentation.
 
@@ -33,4 +36,4 @@ You can customize the game settings by adding additional command-line options as
 Contributions to enhance or extend the `MDPAgent` are welcome. If you're interested in contributing, please fork the repository, make your changes, and submit a pull request.
 
 ## License
-This `MDPAgent` is intended for educational purposes and follows the licensing agreement of the Pac-Man AI projects developed at UC Berkeley. You are free to use or extend this project for educational purposes, provided you do not distribute or publish solutions, retain this notice, and provide clear attribution to UC Berkeley, including a link to the AI course.
+This `MDPAgent` is intended for educational purposes and follows the licensing agreement of the Pac-Man AI projects developed at UC Berkeley.
