@@ -1,7 +1,7 @@
 # Pac-Man MDP Solver
 
 ## Introduction
-This repository contains the `MDPAgent` for the classic Pac-Man game, implementing a Markov Decision Process (MDP) solver designed to optimize Pac-Man's navigation and ghost evasion strategies. This solver calculates the best moves for Pac-Man based on reward maximization under the game's uncertain dynamics. It's built to integrate with the Pac-Man AI framework from UC Berkeley's AI course, operating specifically with Python 2.7.
+This repository contains the `MDPAgent` for the classic Pac-Man game, implementing a Markov Decision Process (MDP) solver designed to optimise Pac-Man's navigation and ghost evasion strategies. This solver calculates the best moves for Pac-Man based on reward maximisation under the game's uncertain dynamics. It's built to integrate with the Pac-Man AI framework from UC Berkeley's AI course, operating specifically with Python 2.7.
 
 ## Prerequisites
 - Python 2.7
@@ -30,7 +30,7 @@ python2.7 pacman.py -q -n 25 -p MDPAgent -l mediumClassic
 
 `-l` is shorthand for `-layout`, `-p` is shorthand for `-pacman`, and `-q` runs the game without the interface (making it faster).
 
-You can customize the game settings by adding additional command-line options as described in the original Pac-Man AI project documentation.
+You can customise the game settings by adding additional command-line options as described in the original Pac-Man AI project documentation.
 
 ## Contributing
 Contributions to enhance or extend the `MDPAgent` are welcome. If you're interested in contributing, please fork the repository, make your changes, and submit a pull request.
