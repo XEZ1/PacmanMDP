@@ -1,33 +1,3 @@
-# mdpAgents.py
-# parsons/20-nov-2017
-#
-# Version 1
-#
-# The starting point for CW2.
-#
-# Intended to work with the PacMan AI projects from:
-#
-# http://ai.berkeley.edu/
-#
-# These use a simple API that allow us to control Pacman's interaction with
-# the environment adding a layer on top of the AI Berkeley code.
-#
-# As required by the licensing agreement for the PacMan AI we have:
-#
-# Licensing Information:  You are free to use or extend these projects for
-# educational purposes provided that (1) you do not distribute or publish
-# solutions, (2) you retain this notice, and (3) you provide clear
-# attribution to UC Berkeley, including a link to http://ai.berkeley.edu.
-# 
-# Attribution Information: The Pacman AI projects were developed at UC Berkeley.
-# The core projects and autograders were primarily created by John DeNero
-# (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
-# Student side autograding was added by Brad Miller, Nick Hay, and
-# Pieter Abbeel (pabbeel@cs.berkeley.edu).
-
-# The agent here is was written by Simon Parsons, based on the code in
-# pacmanAgents.py
-
 from pacman import Directions
 from game import Agent
 import api
@@ -59,11 +29,6 @@ class MDPAgent(Agent):
         is_small_board = (max(x for x, _ in api.walls(state)) + 1) < 9 and \
                          (max(y for _, y in api.walls(state)) + 1) < 9
 
-        # Some of the values have been taken from various papers I came across in the internet, I lost the particular one
-        # that explained why some of these values are the best to use (like the gamma facotr and some of other rewards,
-        # but I feel like it's important to mention that I didn't come up with some of these values fully myself.
-        # One of the papers I used is the following:
-        # https://leyankoh.wordpress.com/2017/12/14/an-mdp-solver-for-pacman-to-navigate-a-nondeterministic-environment/
         self.gameElements = {
             'walls': set(api.walls(state)),
             'grid_size': (max(x for x, _ in api.walls(state)) + 1, max(y for _, y in api.walls(state)) + 1),
@@ -233,9 +198,7 @@ class MDPAgent(Agent):
             self.gameElements['prev_utilities'][next_state] = 1 if self.gameElements['prev_utilities'][next_state] == 0 \
                 else self.gameElements['prev_utilities'][next_state]
 
-            # This idea of calculating the utility using probabilities & the complimentary ones is taken from the
-            # following paper: https://leyankoh.wordpress.com/2017/12/14/an-mdp-solver-for-pacman-to-navigate-a-nondeterministic-environment/
-            # and from Russel and Norvig book
+            # This idea of calculating the utility using probabilities & the complimentary ones is taken from the from Russel and Norvig book
             utility = self.gameElements['direction_probabilities'] * self.gameElements['prev_utilities'][next_state] + \
                       ((1 - self.gameElements['direction_probabilities']) * (self.gameElements['prev_utilities'][next_state])) \
                       if direction in [Directions.RIGHT[direction], Directions.LEFT[direction]] else \
